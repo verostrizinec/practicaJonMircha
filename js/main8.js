@@ -131,3 +131,57 @@ const valoresMapa2 = [...mapa2.values()]; // del mapa 2 almacena los valores
 
 console.log(llavesMapa2);
 console.log(valoresMapa2);
+
+console.clear();
+
+// ***** CLASE 51: WEAKSET & WEAKMAPS *****
+
+// Mapas debiles y conjuntos debiles. Solamente pueden almacenar referencias debiles. Las llaves deben ser de tipo objeto. No son elementos iterables (no se usa for of, for in, for each). No se puede usar el metodo clear. Tampoco tienen la propiedad size.
+
+// No se puede crear un Weakset asi:
+// const ws = new WeakSet([1,2,3,3,true,false]);
+
+const ws = new WeakSet();
+
+let valor1 = { "valor1": 1 };
+let valor2 = { "valor2": 2 };
+let valor3 = { "valor3": 3 };
+
+ws.add(valor1);
+ws.add(valor2);
+console.log(ws);
+console.log(ws.has(valor3));
+
+/* setInterval(() => console.log(ws), 1000);
+
+setTimeout(() => {
+    valor1 = null;
+    valor2 = null;
+    valor3 = null;
+}, 5000); */
+
+console.clear();
+
+/* no se puede crear un weakmap asi:
+const wm = new WeakMap([
+    ["nombre", "Morena"],
+    ["edad", 10],
+    ["animal", "perro"],
+    [null, "nulo"],
+]); */
+
+const wm = new WeakMap();
+let llave1 = {};
+let llave2 = {};
+let llave3 = {};
+
+wm.set(llave1, 1);
+wm.set(llave2, 2);
+console.log(wm);
+
+console.log(wm.has(llave1)); // para saber si existe llave1
+
+console.log(wm.get(llave2)); // para mostrar el valor de llave 2
+
+wm.delete(llave3);
+console.log(wm);
