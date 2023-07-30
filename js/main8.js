@@ -134,7 +134,7 @@ console.log(valoresMapa2);
 
 console.clear();
 
-// ***** CLASE 51: WEAKSET & WEAKMAPS *****
+// ***** CLASE 52: WEAKSET & WEAKMAPS *****
 
 // Mapas debiles y conjuntos debiles. Solamente pueden almacenar referencias debiles. Las llaves deben ser de tipo objeto. No son elementos iterables (no se usa for of, for in, for each). No se puede usar el metodo clear. Tampoco tienen la propiedad size.
 
@@ -183,5 +183,6 @@ console.log(wm.has(llave1)); // para saber si existe llave1
 
 console.log(wm.get(llave2)); // para mostrar el valor de llave 2
 
-wm.delete(llave3);
+wm.delete(llave3); // para eliminar llave 3
 console.log(wm);
+
