@@ -101,7 +101,30 @@ console.clear();
 
 // ***** CLASE 55: PROXIES *****
 
+// El proxie es un mecanismo que permite crear un objeto basado en un objeto literal inicial.
 
+const persona = {
+    nombre: "",
+    apellido: "",
+    edad: 0,
+}
 
+const manejador = {
+    set(obj, prop, valor) {
+        if (Object.keys(obj).indexOf(prop) === -1) { // ESTO EVALUA QUE EXISTA LA PROPIEDAD TWITTER, si devuelve -1 es pq no existe la propiedad en el objeto persona 
+            return console.error(`La propiedad ${prop} no existe en el objeto persona.`);
+        }
+        obj[prop] = valor;
+    }
+}
 
+const jon = new Proxy(persona, manejador);
+
+jon.nombre = "Vero";
+jon.apellido = "Mircha";
+jon.edad = 35;
+jon.twitter = "@jonmircha";
+
+console.log(jon);
+console.log(persona);
 
