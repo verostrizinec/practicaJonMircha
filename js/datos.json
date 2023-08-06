@@ -1,0 +1,15 @@
+{ 
+    "cadena": "Vero",
+    "numero": "34",
+    "boleeano": "true",
+    "arreglo": [
+        "futbol",
+        "programar",
+        "comer"
+    ],
+    "objeto": {
+        "instagram": "Verostrii",
+        "email": "verostrizinec@gmail.com"
+    },
+    "nulo": null
+}
