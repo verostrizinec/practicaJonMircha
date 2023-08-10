@@ -1,9 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WEB APIs</title>
+    <style>
+        :root {
+            --yellow-color: #F7DF1E;
+            --dark-color: #222;
+        }
+
+        .card {
+            display: inline-block;
+            background-color: var(--dark-color);
+            color: var(--yellow-color);
+        }
+
+        .cards {
+            border: thin solid var(--dark-color);
+            padding: 1rem;
+        }
+
+        .card figcaption {
+            padding: 1rem;
+        }
+
+        .rotate-45 {
+            transform: rotate(45deg);
+        }
+
+        .rotate-135 {
+            transform: rotate(135deg);
+        }
+
+        .opacity-80 {
+            opacity: .8;
+        }
+
+        .sepia {
+            filter: sepia(1);
+        }
+    </style>
 </head>
 <body>
     <h1>WEB APIs</h1>
@@ -43,31 +80,33 @@
     </ul>
 </nav>
 <input type="text" name="nombre" placeholder="Nombre">
-<a class="link-dom" href="dom.html">DOM</a>
+<a class="link-dom" href="dom.html" data-description="Document Object Model" style="background-color: #F7DF1E; color: #222;">DOM</a>
 
 <section class="cards">
     <figure class="card">
-    <img src="https://placeimg.com/200/200/tech" alt="Tech">
+    <img src="https://picsum.photos/200/200" alt="Tech">
     <figcaption>Tech</figcaption>
     </figure>
     <figure class="card">
-       <img src="https://placeimg.com/200/200/animals" alt="Animals">
+       <img src="https://picsum.photos/200/200" alt="Animals">
        <figcaption>Animals</figcaption>
     </figure>
     <figure class="card">
-        <img src="https://placeimg.com/200/200/people" alt="People">
+        <img src="https://picsum.photos/200/200" alt="People">
         <figcaption>People</figcaption>
     </figure>
     <figure class="card">
-        <img src="https://placeimg.com/200/200/arch" alt="Arch">
+        <img src="https://picsum.photos/200/200" alt="Arch">
         <figcaption>Arch</figcaption>
     </figure>
     <figure class="card">
-        <img src="https://placeimg.com/200/200/nature" alt="Nature">
+        <img src="https://picsum.photos/200/200" alt="Nature">
         <figcaption>Nature</figcaption>
     </figure>
 </section>
 
-<script src="./js/dom.js"></script>
+<!--<script src="./js/dom.js"></script>-->
+<script src="./js/dom2.js"></script>
+<script src="./js/dom3.js"></script>
 </body>
 </html>
