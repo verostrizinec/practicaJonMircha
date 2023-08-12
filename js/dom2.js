@@ -120,7 +120,9 @@ console.clear();
 // ***** CLASE 67: DOM: Traversing: Recorriendo el DOM *****
 // Traversing es una serie de propiedades que nos da el API del DOM para recorrer diferentes elementos.
 
-const $cards = document.querySelector(".cards");
+/* LO COMENTÉ SOLO PARA USARLO MAS ABAJO, VA SIN COMENTARIO
+
+const $cards = document.querySelector(".cards"); 
 
 console.log($cards);
 console.log($cards.children); // muestra los hijos de cards
@@ -134,4 +136,100 @@ console.log($cards.previousElementSibling); // muestra el hermano anterior
 console.log($cards.nextElementSibling); // muestra el hermano posterior
 console.log($cards.closest("div")); // es un metodo que busca el ancestro mas cercano del tipo de selector que le demos. En este caso da null porque no hay div
 console.log($cards.closest("body")); 
-console.log($cards.children[3].closest("section"));  // tomando como referencia el tercer hijo cual es la section mas cercana
+console.log($cards.children[3].closest("section"));  // tomando como referencia el tercer hijo cual es la section mas cercana */
+
+// ***** CLASE 68: DOM: CREANDO ELEMENTOS Y FRAGMENTOS *****
+
+// un elemento es una etiqueta html
+
+// creamos una tarjeta
+
+const $figure = document.createElement("figure"), // createElement crea un elemento del DOM, en este caso una figure
+$img = document.createElement("img"), // creamos una etiqueta img
+$figcaption = document.createElement("figcaption"), // creamos una etiqueta figcaption
+$figcaptionText = document.createTextNode("Animals"), // createTextNode crea un nodo de texto, animal es el texto que quiero q aparezca.
+$cards = document.querySelector(".cards"); // capturamos el elemento padre, que es la clase cards
+// creo una figure2 para agregar otra tarjeta 👇
+$figure2 = document.createElement("figure");
+
+
+
+$img.setAttribute("src", "https://picsum.photos/200/200"); // en el atributo src llamo a la imagen
+$img.setAttribute("alt", "Animals"); // de esta manera configuro el alt
+$figure.classList.add("card"); // a figure en su nodo de lista agregamos la clase card. Esto es para que lea la clase y tome los estilos
+
+$figcaption.appendChild($figcaptionText); // a figcaption agrega el nodo appendChild de figcaptiontext
+$figure.appendChild($img); // de esta manera voy agregando los elementos
+$figure.appendChild($figcaption);
+
+$cards.appendChild($figure);
+
+// uso innerHTML para agregar el cntenido dinamicamente, es mas rapido.
+$figure2.innerHTML = ` 
+    <img src="https://picsum.photos/200/200" alt="People">
+    <figcaption>People</figcaption>
+`;
+
+$figure2.classList.add("card"); // para agregar los estilos a la figura creada en la linea 153
+$cards.appendChild($figure2);
+
+// otra forma de crear
+const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"],
+ $ul = document.createElement("ul"); // dinamicamente creo un ul
+
+ document.write("<h3>Estaciones del Año</h3>"); // asi pongo un titulo, pero no es buena practica
+
+ // agregamos la ul al body
+ document.body.appendChild($ul);
+
+ estaciones.forEach(el => {
+    const $li = document.createElement("li");
+    $li.textContent = el;
+    $ul.appendChild($li);
+ })
+
+ // creo una segunda lista de otra manera
+
+ const continentes = ["Africa", "America", "Asia", "Europa", "Oceania"],
+  $ul2 = document.createElement("ul"); // creo una ul 2
+
+  // creo un titulo con write y al body agrego la ul2
+  document.write("<h3>Continenetes del Mundo</h3>");
+  document.body.appendChild($ul2);
+
+  // utilizo innerHTML pero no creo un nodo HTML de esta manera
+  $ul2.innerHTML = "";
+
+  continentes.forEach((el) => ($ul2.innerHTML += `<li>${el}</li>`)); // reveer porque no entendi
+
+  // otra forma de crear Y LA MAS RECOMENDADA 👇
+
+  const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ],
+
+  $ul3 = document.createElement("ul");
+  $fragment = document.createDocumentFragment();
+
+  meses.forEach(el => {
+    const $li = document.createElement("li");
+    $li.textContent = el;
+    $fragment.appendChild($li);
+  });
+
+  document.write("<h3>Meses del año</h3>");
+  $ul3.appendChild($fragment);
+  document.body.appendChild($ul3);
+
+// ***** CLASE 69: DOM: Templates HTML *****
